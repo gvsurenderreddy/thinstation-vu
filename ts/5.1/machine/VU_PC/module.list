@@ -1,0 +1,13 @@
+module ata_generic
+module ata_piix
+module intel-agp
+module libata
+module pata_acpi
+module psmouse
+
+module e100
+module e1000
+module 8139too
+module via-rhine
+
+module snd-intel8x0
