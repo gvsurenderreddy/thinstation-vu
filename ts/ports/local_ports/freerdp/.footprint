@@ -1,0 +1,172 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/xfreerdp
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/freerdp/
+-rw-r--r--	root/root	usr/include/freerdp/altsec.h
+-rw-r--r--	root/root	usr/include/freerdp/api.h
+drwxr-xr-x	root/root	usr/include/freerdp/cache/
+-rw-r--r--	root/root	usr/include/freerdp/cache/bitmap.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/brush.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/cache.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/glyph.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/offscreen.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/palette.h
+-rw-r--r--	root/root	usr/include/freerdp/cache/pointer.h
+drwxr-xr-x	root/root	usr/include/freerdp/channels/
+-rw-r--r--	root/root	usr/include/freerdp/channels/channels.h
+-rw-r--r--	root/root	usr/include/freerdp/channels/wtsvc.h
+drwxr-xr-x	root/root	usr/include/freerdp/codec/
+-rw-r--r--	root/root	usr/include/freerdp/codec/bitmap.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/color.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/nsc.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/rfx.h
+-rw-r--r--	root/root	usr/include/freerdp/constants.h
+-rw-r--r--	root/root	usr/include/freerdp/dvc.h
+-rw-r--r--	root/root	usr/include/freerdp/extension.h
+-rw-r--r--	root/root	usr/include/freerdp/freerdp.h
+drwxr-xr-x	root/root	usr/include/freerdp/gdi/
+-rw-r--r--	root/root	usr/include/freerdp/gdi/16bpp.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/32bpp.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/8bpp.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/bitmap.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/brush.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/clipping.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/dc.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/drawing.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/gdi.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/line.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/palette.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/pen.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/region.h
+-rw-r--r--	root/root	usr/include/freerdp/gdi/shape.h
+-rw-r--r--	root/root	usr/include/freerdp/graphics.h
+-rw-r--r--	root/root	usr/include/freerdp/input.h
+drwxr-xr-x	root/root	usr/include/freerdp/kbd/
+-rw-r--r--	root/root	usr/include/freerdp/kbd/kbd.h
+-rw-r--r--	root/root	usr/include/freerdp/kbd/layouts.h
+-rw-r--r--	root/root	usr/include/freerdp/kbd/locales.h
+-rw-r--r--	root/root	usr/include/freerdp/kbd/vkcodes.h
+-rw-r--r--	root/root	usr/include/freerdp/listener.h
+-rw-r--r--	root/root	usr/include/freerdp/peer.h
+drwxr-xr-x	root/root	usr/include/freerdp/plugins/
+-rw-r--r--	root/root	usr/include/freerdp/plugins/cliprdr.h
+-rw-r--r--	root/root	usr/include/freerdp/plugins/tsmf.h
+-rw-r--r--	root/root	usr/include/freerdp/pointer.h
+-rw-r--r--	root/root	usr/include/freerdp/primary.h
+-rw-r--r--	root/root	usr/include/freerdp/rail.h
+drwxr-xr-x	root/root	usr/include/freerdp/rail/
+-rw-r--r--	root/root	usr/include/freerdp/rail/icon.h
+-rw-r--r--	root/root	usr/include/freerdp/rail/rail.h
+-rw-r--r--	root/root	usr/include/freerdp/rail/window.h
+-rw-r--r--	root/root	usr/include/freerdp/rail/window_list.h
+-rw-r--r--	root/root	usr/include/freerdp/secondary.h
+-rw-r--r--	root/root	usr/include/freerdp/settings.h
+-rw-r--r--	root/root	usr/include/freerdp/svc.h
+-rw-r--r--	root/root	usr/include/freerdp/types.h
+-rw-r--r--	root/root	usr/include/freerdp/update.h
+drwxr-xr-x	root/root	usr/include/freerdp/utils/
+-rw-r--r--	root/root	usr/include/freerdp/utils/args.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/bitmap.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/blob.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/debug.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/dsp.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/event.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/file.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/hexdump.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/list.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/load_plugin.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/memory.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/mutex.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/passphrase.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/pcap.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/print.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/profiler.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/rail.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/rect.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/registry.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/semaphore.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/signal.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/sleep.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/stopwatch.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/stream.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/string.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/svc_plugin.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/thread.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/time.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/unicode.h
+-rw-r--r--	root/root	usr/include/freerdp/utils/wait_obj.h
+-rw-r--r--	root/root	usr/include/freerdp/window.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/freerdp/
+-rwxr-xr-x	root/root	usr/lib/freerdp/audin.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/audin_alsa.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/cliprdr.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/disk.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/drdynvc.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/parallel.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/printer.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/rail.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/rdpdbg.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/rdpdr.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/rdpsnd.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/rdpsnd_alsa.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/scard.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/serial.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/tsmf.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/tsmf_alsa.so
+-rwxr-xr-x	root/root	usr/lib/freerdp/tsmf_ffmpeg.so
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-cache.so -> libfreerdp-cache.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-cache.so.1.0 -> libfreerdp-cache.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-cache.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-channels.so -> libfreerdp-channels.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-channels.so.1.0 -> libfreerdp-channels.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-channels.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-codec.so -> libfreerdp-codec.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-codec.so.1.0 -> libfreerdp-codec.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-codec.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-core.so -> libfreerdp-core.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-core.so.1.0 -> libfreerdp-core.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-core.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-gdi.so -> libfreerdp-gdi.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-gdi.so.1.0 -> libfreerdp-gdi.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-gdi.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-kbd.so -> libfreerdp-kbd.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-kbd.so.1.0 -> libfreerdp-kbd.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-kbd.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-rail.so -> libfreerdp-rail.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-rail.so.1.0 -> libfreerdp-rail.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-rail.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-utils.so -> libfreerdp-utils.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libfreerdp-utils.so.1.0 -> libfreerdp-utils.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libfreerdp-utils.so.1.0.3
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/freerdp.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/freerdp/
+drwxr-xr-x	root/root	usr/share/freerdp/keymaps/
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/aliases
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/amiga
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/ataritt
+drwxr-xr-x	root/root	usr/share/freerdp/keymaps/digital_vndr/
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/digital_vndr/lk
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/digital_vndr/pc
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/empty
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/evdev
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/fujitsu
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/hp
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/ibm
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/macintosh
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/macosx
+drwxr-xr-x	root/root	usr/share/freerdp/keymaps/sgi_vndr/
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/sgi_vndr/indigo
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/sgi_vndr/indy
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/sgi_vndr/iris
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/sony
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/sun
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/xfree86
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/xfree98
+-rw-r--r--	root/root	usr/share/freerdp/keymaps/xkb.pl
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/xfreerdp.1.gz
