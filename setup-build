@@ -1,0 +1,13 @@
+THINSTATION_PATH=${PWD}
+if [ ! -d build ]; then
+    mkdir build
+    find * -not -path "build" -type d -exec mkdir build/{} \;
+    find * -not -path "build" -type f | while read f
+    do
+        ln "${THINSTATION_PATH}/${f}" "build/${f}"
+    done
+    find * -not -path "build" -type l | while read f
+    do
+        cp -R "${f}" "build/${f}"
+    done
+fi
