@@ -1,0 +1,41 @@
+#!/bin/bash
+while [ $# -gt 0 ]; 
+do
+    case $1 in
+        /*)
+            ALL=$ALL' '$1
+            ;;
+        -d)
+            shift
+            ALL=$ALL' /d:'$1
+            ;;
+        -u)
+            shift
+            ALL=$ALL' /u:'$1
+            ;;
+        -a)
+            shift
+            ALL=$ALL' /bpp:'$1
+            ;;
+        -X)
+            shift
+            ALL=$ALL' /parent-window:'$1
+            ;;
+        -k)
+            ALL=$ALL' -grab-keyboard' 
+            ;;
+        -g)
+            shift
+            width=$(echo $1 | cut -d 'x' -f 1)
+            height=$(echo $1 | cut -d 'x' -f 2)
+            ALL=$ALL' /w:'$width' /h:'$height
+            ;;
+        *:3389)
+            ALL=$ALL' /v:'$1
+            ;;
+    esac
+    shift
+done
+read -p "password:" PASS
+ALL=$ALL' /p:'$PASS
+xfreerdp-bak $ALL

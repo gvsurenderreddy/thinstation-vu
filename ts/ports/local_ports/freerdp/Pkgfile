@@ -4,7 +4,7 @@
 # Depends on: xorg-libx11
 
 name=freerdp
-version=1.0
+version=1.1
 release=stable
 source=()
 
@@ -37,4 +37,6 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+	mv $PKG/usr/bin/xfreerdp $PKG/usr/bin/xfreerdp-bak
+	cp ../../../xfreerdp $PKG/usr/bin/xfreerdp
 }
