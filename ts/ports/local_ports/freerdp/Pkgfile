@@ -37,4 +37,6 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+    mv $PKG/usr/bin/xfreerdp $PKG/usr/bin/xfreerdp-bak
+    cp ../../../xfreerdp $PKG/usr/bin/xfreerdp
 }

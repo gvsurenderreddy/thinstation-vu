@@ -11,3 +11,5 @@ module 8139too
 module via-rhine
 
 module snd-intel8x0
+
+module nouveau

@@ -1,11 +1,13 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/xfreerdp
+-rwxr-xr-x	root/root	usr/bin/xfreerdp-bak
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/freerdp/
 -rw-r--r--	root/root	usr/include/freerdp/addin.h
 -rw-r--r--	root/root	usr/include/freerdp/altsec.h
 -rw-r--r--	root/root	usr/include/freerdp/api.h
+-rw-r--r--	root/root	usr/include/freerdp/assistance.h
 drwxr-xr-x	root/root	usr/include/freerdp/cache/
 -rw-r--r--	root/root	usr/include/freerdp/cache/bitmap.h
 -rw-r--r--	root/root	usr/include/freerdp/cache/brush.h
@@ -19,10 +21,13 @@ drwxr-xr-x	root/root	usr/include/freerdp/channels/
 -rw-r--r--	root/root	usr/include/freerdp/channels/audin.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/channels.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/cliprdr.h
+-rw-r--r--	root/root	usr/include/freerdp/channels/encomsp.h
+-rw-r--r--	root/root	usr/include/freerdp/channels/log.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/rail.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/rdpdr.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/rdpgfx.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/rdpsnd.h
+-rw-r--r--	root/root	usr/include/freerdp/channels/remdesk.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/tsmf.h
 -rw-r--r--	root/root	usr/include/freerdp/channels/wtsvc.h
 -rw-r--r--	root/root	usr/include/freerdp/client.h
@@ -33,25 +38,31 @@ drwxr-xr-x	root/root	usr/include/freerdp/client/
 -rw-r--r--	root/root	usr/include/freerdp/client/cmdline.h
 -rw-r--r--	root/root	usr/include/freerdp/client/disp.h
 -rw-r--r--	root/root	usr/include/freerdp/client/drdynvc.h
+-rw-r--r--	root/root	usr/include/freerdp/client/encomsp.h
 -rw-r--r--	root/root	usr/include/freerdp/client/file.h
 -rw-r--r--	root/root	usr/include/freerdp/client/rail.h
 -rw-r--r--	root/root	usr/include/freerdp/client/rdpei.h
 -rw-r--r--	root/root	usr/include/freerdp/client/rdpgfx.h
 -rw-r--r--	root/root	usr/include/freerdp/client/rdpsnd.h
+-rw-r--r--	root/root	usr/include/freerdp/client/remdesk.h
 -rw-r--r--	root/root	usr/include/freerdp/client/tsmf.h
 drwxr-xr-x	root/root	usr/include/freerdp/codec/
 -rw-r--r--	root/root	usr/include/freerdp/codec/audio.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/bitmap.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/bulk.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/clear.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/color.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/dsp.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/h264.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/jpeg.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/mppc.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/ncrush.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/nsc.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/progressive.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/region.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/rfx.h
 -rw-r--r--	root/root	usr/include/freerdp/codec/xcrush.h
+-rw-r--r--	root/root	usr/include/freerdp/codec/zgfx.h
 -rw-r--r--	root/root	usr/include/freerdp/constants.h
 drwxr-xr-x	root/root	usr/include/freerdp/crypto/
 -rw-r--r--	root/root	usr/include/freerdp/crypto/ber.h
@@ -107,8 +118,12 @@ drwxr-xr-x	root/root	usr/include/freerdp/server/
 -rw-r--r--	root/root	usr/include/freerdp/server/channels.h
 -rw-r--r--	root/root	usr/include/freerdp/server/cliprdr.h
 -rw-r--r--	root/root	usr/include/freerdp/server/drdynvc.h
+-rw-r--r--	root/root	usr/include/freerdp/server/echo.h
+-rw-r--r--	root/root	usr/include/freerdp/server/encomsp.h
 -rw-r--r--	root/root	usr/include/freerdp/server/rdpdr.h
 -rw-r--r--	root/root	usr/include/freerdp/server/rdpsnd.h
+-rw-r--r--	root/root	usr/include/freerdp/server/remdesk.h
+-rw-r--r--	root/root	usr/include/freerdp/server/shadow.h
 -rw-r--r--	root/root	usr/include/freerdp/settings.h
 -rw-r--r--	root/root	usr/include/freerdp/svc.h
 -rw-r--r--	root/root	usr/include/freerdp/types.h
@@ -137,10 +152,12 @@ drwxr-xr-x	root/root	usr/include/winpr/
 -rw-r--r--	root/root	usr/include/winpr/bitstream.h
 -rw-r--r--	root/root	usr/include/winpr/cmdline.h
 -rw-r--r--	root/root	usr/include/winpr/collections.h
+-rw-r--r--	root/root	usr/include/winpr/comm.h
 -rw-r--r--	root/root	usr/include/winpr/credentials.h
 -rw-r--r--	root/root	usr/include/winpr/credui.h
 -rw-r--r--	root/root	usr/include/winpr/crt.h
 -rw-r--r--	root/root	usr/include/winpr/crypto.h
+-rw-r--r--	root/root	usr/include/winpr/debug.h
 -rw-r--r--	root/root	usr/include/winpr/dsparse.h
 -rw-r--r--	root/root	usr/include/winpr/endian.h
 -rw-r--r--	root/root	usr/include/winpr/environment.h
@@ -171,6 +188,7 @@ drwxr-xr-x	root/root	usr/include/winpr/
 -rw-r--r--	root/root	usr/include/winpr/security.h
 -rw-r--r--	root/root	usr/include/winpr/smartcard.h
 -rw-r--r--	root/root	usr/include/winpr/spec.h
+-rw-r--r--	root/root	usr/include/winpr/ssl.h
 -rw-r--r--	root/root	usr/include/winpr/sspi.h
 -rw-r--r--	root/root	usr/include/winpr/sspicli.h
 -rw-r--r--	root/root	usr/include/winpr/stream.h
@@ -200,6 +218,7 @@ drwxr-xr-x	root/root	usr/lib/freerdp/
 -rw-r--r--	root/root	usr/lib/freerdp/drdynvc-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/drive-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/echo-client.a
+-rw-r--r--	root/root	usr/lib/freerdp/encomsp-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/parallel-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/printer-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/rail-client.a
@@ -209,7 +228,7 @@ drwxr-xr-x	root/root	usr/lib/freerdp/
 -rw-r--r--	root/root	usr/lib/freerdp/rdpsnd-client-alsa.a
 -rw-r--r--	root/root	usr/lib/freerdp/rdpsnd-client-pulse.a
 -rw-r--r--	root/root	usr/lib/freerdp/rdpsnd-client.a
--rw-r--r--	root/root	usr/lib/freerdp/sample-client.a
+-rw-r--r--	root/root	usr/lib/freerdp/remdesk-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/serial-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/smartcard-client.a
 -rw-r--r--	root/root	usr/lib/freerdp/tsmf-client-alsa-audio.a
@@ -251,121 +270,10 @@ lrwxrwxrwx	root/root	usr/lib/libfreerdp-rail.so.1.2 -> libfreerdp-rail.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libfreerdp-utils.so -> libfreerdp-utils.so.1.2
 lrwxrwxrwx	root/root	usr/lib/libfreerdp-utils.so.1.2 -> libfreerdp-utils.so.1.2.0
 -rwxr-xr-x	root/root	usr/lib/libfreerdp-utils.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-asn1.so -> libwinpr-asn1.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-asn1.so.1.1 -> libwinpr-asn1.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-asn1.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-bcrypt.so -> libwinpr-bcrypt.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-bcrypt.so.1.1 -> libwinpr-bcrypt.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-bcrypt.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-com.so -> libwinpr-com.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-com.so.1.1 -> libwinpr-com.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-com.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-credentials.so -> libwinpr-credentials.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-credentials.so.1.1 -> libwinpr-credentials.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-credentials.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-credui.so -> libwinpr-credui.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-credui.so.1.1 -> libwinpr-credui.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-credui.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-crt.so -> libwinpr-crt.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-crt.so.1.1 -> libwinpr-crt.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-crt.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-crypto.so -> libwinpr-crypto.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-crypto.so.1.1 -> libwinpr-crypto.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-crypto.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-dsparse.so -> libwinpr-dsparse.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-dsparse.so.1.1 -> libwinpr-dsparse.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-dsparse.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-environment.so -> libwinpr-environment.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-environment.so.1.1 -> libwinpr-environment.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-environment.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-error.so -> libwinpr-error.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-error.so.1.1 -> libwinpr-error.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-error.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-file.so -> libwinpr-file.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-file.so.1.1 -> libwinpr-file.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-file.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-handle.so -> libwinpr-handle.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-handle.so.1.1 -> libwinpr-handle.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-handle.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-heap.so -> libwinpr-heap.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-heap.so.1.1 -> libwinpr-heap.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-heap.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-input.so -> libwinpr-input.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-input.so.1.1 -> libwinpr-input.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-input.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-interlocked.so -> libwinpr-interlocked.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-interlocked.so.1.1 -> libwinpr-interlocked.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-interlocked.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-io.so -> libwinpr-io.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-io.so.1.1 -> libwinpr-io.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-io.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-library.so -> libwinpr-library.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-library.so.1.1 -> libwinpr-library.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-library.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-locale.so -> libwinpr-locale.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-locale.so.1.1 -> libwinpr-locale.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-locale.so.1.1.0
 -rw-r--r--	root/root	usr/lib/libwinpr-makecert-tool.a
-lrwxrwxrwx	root/root	usr/lib/libwinpr-memory.so -> libwinpr-memory.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-memory.so.1.1 -> libwinpr-memory.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-memory.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-nt.so -> libwinpr-nt.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-nt.so.1.1 -> libwinpr-nt.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-nt.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-path.so -> libwinpr-path.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-path.so.1.1 -> libwinpr-path.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-path.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-pipe.so -> libwinpr-pipe.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-pipe.so.1.1 -> libwinpr-pipe.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-pipe.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-pool.so -> libwinpr-pool.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-pool.so.1.1 -> libwinpr-pool.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-pool.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-registry.so -> libwinpr-registry.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-registry.so.1.1 -> libwinpr-registry.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-registry.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-rpc.so -> libwinpr-rpc.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-rpc.so.1.1 -> libwinpr-rpc.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-rpc.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-security.so -> libwinpr-security.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-security.so.1.1 -> libwinpr-security.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-security.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-smartcard.so -> libwinpr-smartcard.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-smartcard.so.1.1 -> libwinpr-smartcard.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-smartcard.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sspi.so -> libwinpr-sspi.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sspi.so.1.1 -> libwinpr-sspi.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-sspi.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sspicli.so -> libwinpr-sspicli.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sspicli.so.1.1 -> libwinpr-sspicli.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-sspicli.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-synch.so -> libwinpr-synch.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-synch.so.1.1 -> libwinpr-synch.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-synch.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sysinfo.so -> libwinpr-sysinfo.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-sysinfo.so.1.1 -> libwinpr-sysinfo.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-sysinfo.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-thread.so -> libwinpr-thread.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-thread.so.1.1 -> libwinpr-thread.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-thread.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-timezone.so -> libwinpr-timezone.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-timezone.so.1.1 -> libwinpr-timezone.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-timezone.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-utils.so -> libwinpr-utils.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-utils.so.1.1 -> libwinpr-utils.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-utils.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-winhttp.so -> libwinpr-winhttp.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-winhttp.so.1.1 -> libwinpr-winhttp.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-winhttp.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-winsock.so -> libwinpr-winsock.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-winsock.so.1.1 -> libwinpr-winsock.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-winsock.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-wnd.so -> libwinpr-wnd.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-wnd.so.1.1 -> libwinpr-wnd.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-wnd.so.1.1.0
-lrwxrwxrwx	root/root	usr/lib/libwinpr-wtsapi.so -> libwinpr-wtsapi.so.1.1
-lrwxrwxrwx	root/root	usr/lib/libwinpr-wtsapi.so.1.1 -> libwinpr-wtsapi.so.1.1.0
--rwxr-xr-x	root/root	usr/lib/libwinpr-wtsapi.so.1.1.0
+lrwxrwxrwx	root/root	usr/lib/libwinpr.so -> libwinpr.so.1.1
+lrwxrwxrwx	root/root	usr/lib/libwinpr.so.1.1 -> libwinpr.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libwinpr.so.1.1.0
 lrwxrwxrwx	root/root	usr/lib/libxfreerdp-client.so -> libxfreerdp-client.so.1.2
 lrwxrwxrwx	root/root	usr/lib/libxfreerdp-client.so.1.2 -> libxfreerdp-client.so.1.2.0
 -rwxr-xr-x	root/root	usr/lib/libxfreerdp-client.so.1.2.0
