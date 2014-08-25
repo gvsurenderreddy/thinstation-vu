@@ -20,6 +20,7 @@ PATH=/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/local/sbin:/ts/bin
 
 # set some defaults for builds that would produce unexpected results for legacy build scripts otherwise.
 ts_mesa_3d=enabled
+ts_localpkgs=true
 
 # Show Command line Parameters
 
@@ -94,9 +95,10 @@ addpkgs()
   if ls $1/*.pkg > /dev/null 2>&1 ; then
     rm $1/*.pkg
   fi
-  if [ "`make_caps $ts_localpkgs`" = "TRUE" ] ; then
+  if is_enabled $ts_localpkgs; then
     if ls $PKGDIR/*.pkg > /dev/null 2>&1 ; then
-    	cp $PKGDIR/*.pkg $1
+	mkdir -p $1
+    	ln $PKGDIR/*.pkg $1
     fi
   fi
 }
@@ -110,7 +112,7 @@ mounted()
 lib_in_path()
 {
 	for lpath in `cat lpaths.tmp` $filepath; do
-		if [ -e ./tmp-tree$lpath/$1 ]; then
+		if [ -e ./tmp-tree$lpath/$1 ] || [ -e $pkgname$lpath/$1 ]; then
 			return 0
 		fi
 	done
@@ -150,7 +152,7 @@ lib_dependencies()
               echo "Adding library dependencies for `basename $filename`"
               DISPLAYED=TRUE
             fi
-            libsource="`prt-get fsearch $libfile |grep -v Found |cut -d " " -f3 |head -n1`"
+            libsource="`prt-get fsearch $libfile |grep -Ev 'Found|x-tool|^$' | cut -d " " -f3 |head -n1`"
             if [ -n "$libsource" ] && [ -e $libsource ]; then
               echo -e "\t\t\t$libfile"
               if [ ! -e $pkgname/lib ]; then
@@ -496,19 +498,23 @@ get_file ()
 	echo -e "\nDownloading from Net....."
         if [ ! -z "$ts_httpproxy" ] ; then
             echo "Using proxy $http_proxy"
-                if ! wget -N $URL -O $2/$outfile -e http_proxy=$ts_httpproxy $ts_wgetopts ; then
-                        echo -e "\nError has occured downloading file"
-                        echo -e "Build Aborted\n"
-                        remove_files
-                        exit 1
-                fi
+		if ! wget -t 1 -N $URL -O $2/$outfile -e http_proxy=$ts_httpproxy $ts_wgetopts ; then
+	                if ! wget -t 1 -N $URL -O $2/$outfile -e http_proxy=$ts_httpproxy $ts_wgetopts ; then
+        	                echo -e "\nError has occured downloading file"
+                	        echo -e "Build Aborted\n"
+                        	remove_files
+	                        exit 1
+        	        fi
+		fi
         else
-            echo "Not using any proxy to connect to internet"
-                if ! wget -N $URL -O $2/$outfile --no-proxy $ts_wgetopts ; then
-                        echo -e "\nError has occured downloading file"
-                        echo -e "Build Aborted\n"
-                        remove_files
-                        exit 1
+            echo "Using system proxy, or not using any proxy to connect to Internet."
+                if ! wget -t 1 -N $URL -O $2/$outfile $ts_wgetopts ; then
+			if ! wget -t 1 -N $URL -O $2/$outfile $ts_wgetopts ; then
+	                        echo -e "\nError has occured downloading file"
+        	                echo -e "Build Aborted\n"
+                	        remove_files
+                        	exit 1
+			fi
                 fi
         fi
 	if [ -n "$ts_downloads" ]; then
@@ -692,19 +698,27 @@ write_locale()
         localedef -i $inputfile -f $charmap $name --prefix=./tmp-tree
 }
 
+sample_configuration()
+{
+	# Building Sample Thinstation.conf file
+	echo -e "\nBuilding Sample Thinstation.conf File\n"
+
+	mkdir -p ./tmp-tree/conf
+	echo > ./thinstation.conf.sample
+	for filename in `find $PKGDIR -maxdepth 1 -name "*" && echo "./tmp-tree"`; do
+		if [ -e $filename/build/conf ] ; then
+			cp $filename/build/conf/* ./tmp-tree/conf
+		fi
+	done
+	for filename in `ls ./tmp-tree/conf | sort`; do
+		cat ./tmp-tree/conf/$filename >> ./thinstation.conf.sample
+	done
+}
+
 locales()
 {
 	# Removes extended locale libs if not selected
 	echo -e "\nAdding locales to archive.\n"
-
-	if [ -n "$ts_forcelocales" ]; then
-		ts_fulllocales=true
-	fi
-	if [ -z "$ts_fulllocales" ]; then
-		if [ ! -e $PACDIR/fulllocales.param ]; then
-			ts_fulllocales="false"
-		fi
-	fi
 
 	if [ -n "`find ./tmp-tree/build -maxdepth 1 -name \*.template`" ]; then
 		for localedef in `cat ./tmp-tree/build/*.template`; do
@@ -919,10 +933,10 @@ install_non_distributable()
 {
 	echo -e "\nAdding and install non-distributable binaries\n"
 	for package in `ls $PACDIR | grep -v "\.param"`; do
-		package=`echo $package | cut -f1 -d.`
+		package=${package%.package}
 		# Check if need to add full locale support for package
-		if [ -e ./packages/$package/build/fulllocales ] ; then
-			ts_forcelocales="true"
+		if [ -e $PACDIR/fulllocales.param ]; then
+                                . $PACDIR/fulllocales.param
 		fi
 		if [ ! -e ./packages/$package/build/installed ] && [ -e ./packages/$package/build/install ] ; then
 			if [ -e $PACDIR/"$package"url.param ]; then
@@ -1019,13 +1033,29 @@ for KERNVER in $KERNVERS; do
 	fi
 	if is_enabled $ALLMODULES ; then
 		echo "Doing an All Modules Build!"
+		if [ -e $PACDIR/blacklist.param ]; then
+	                . $PACDIR/blacklist.param
+		fi
+		if [ -e $PACDIR/blacklist_grp.param ]; then
+ 			. $PACDIR/blacklist_grp.param
+		fi
+		touch /tmp/blacklist.modules
+		for module in $ts_blacklist; do
+			echo $module >> /tmp/blacklist.modules
+		done
+		for group in $ts_blacklist_grp; do
+			for gdir in `find /lib/modules/$KERNVER -type d -name $group`; do
+				find $gdir -name \*.ko -printf '%f ' >> /tmp/blacklist.modules
+			done
+		done
 		for module in `find /lib/modules/$KERNVER -name \*.ko -printf '%f '`; do
-			if copy_module $module $KERNVER ./tmp-tree; then
+			if grep -qe $module /tmp/blacklist.modules; then
+				echo "Skipping $module"
+			elif copy_module $module $KERNVER ./tmp-tree; then
 				allfirm $module
-			else
-				echo "error! $module not found"
 			fi
 		done
+		rm /tmp/blacklist.modules
 	fi
 done
 
@@ -1033,7 +1063,7 @@ for KERNVER in $KERNVERS; do
 	touch /tmp/dirty
 	while [ -e /tmp/dirty ]; do
 		rm /tmp/dirty
-		if ! is_enabled $ALLMODULES; then
+		if ! is_enabled $ALLMODULES || [ -n "$ts_blacklist$ts_blacklist_grp" ]; then
 			# Adding dependent modules via modinfo
 			echo -e "\nBuilding dependencies for $KERNVER Modules..."
 			module_dependencies
@@ -1068,6 +1098,15 @@ fi
 if ! is_enabled $ts_bootlogo; then
 	echo -e "Boot Logo Disabled. Removing splash package."
 	rm $PACDIR/splash.package
+fi
+
+# Now that all the package deps are satisfied, do we really need wmsetbg
+if [ -e $PACDIR/desktop.param ]; then
+	. $PACDIR/desktop.param
+fi
+if [ -z "$ts_desktop" ] && [ -e $PACDIR/wmsetbg.package ]; then
+	echo -e "Desktop Image Disabled. Removing wmsetbg package."
+        rm $PACDIR/wmsetbg.package
 fi
 
 install_non_distributable
@@ -1257,6 +1296,9 @@ mesa
 # Process locales
 locales
 
+# Building Sample Thinstation.conf file
+sample_configuration
+
 # Process keymaps
 keymaps
 
@@ -1292,22 +1334,6 @@ if [ ! -d ${tzpath%/*} ] ;
 fi
 cp /usr/share/zoneinfo/$TIME_ZONE ${tzpath%/*}/.
 ln -sf /lib/zoneinfo/$TIME_ZONE ./tmp-tree/etc/localtime
-
-# Building Sample Thinstation.conf file
-echo -e "\nBuilding Sample Thinstation.conf File\n"
-
-mkdir -p ./tmp-tree/conf
-echo > ./thinstation.conf.sample
-for filename in `find $PKGDIR -maxdepth 1 -name "*" && echo "./tmp-tree"`
-do
-	if [ -e $filename/build/conf ] ; then
-		cp $filename/build/conf/* ./tmp-tree/conf
-	fi
-done
-for filename in `ls ./tmp-tree/conf | sort`
-do
-		cat ./tmp-tree/conf/$filename >> ./thinstation.conf.sample
-done
 
 # Copy across sample file for www administration interface
 if [ -e $PACDIR/www.* ]; then
@@ -1424,8 +1450,10 @@ mesa()
 	if is_disabled $ts_mesa_3d; then
 		echo -e "Mesa 3D disabled, deleting the dri folder."
 		rm -rf ./tmp-tree/lib/dri
+		rm -f ./tmp-tree/lib/xorg/modules/drivers/modesetting_drv.so
 	fi
 }
+
 filesystem_fixups()
 {
 	# Various filesystem fixups
@@ -1586,7 +1614,7 @@ if [ -n "$missing_commands" ]; then
 	exit 1
 fi
 
-required_tools="genisoimage mksquashfs unsquashfs gdk-pixbuf-query-loaders pango-querymodules glib-compile-schemas gio-querymodules rsvg-convert convert cryptmd5 vncpasswd smbpasswd"
+required_tools="mkisofs mksquashfs unsquashfs gdk-pixbuf-query-loaders pango-querymodules glib-compile-schemas gio-querymodules rsvg-convert convert cryptmd5 vncpasswd smbpasswd"
 for tool in $required_tools; do
 	if [ ! `which $tool` ]; then
 		missing_tools="$missing_tools $tool"
@@ -1655,6 +1683,8 @@ fi
 if [ -z "$KERNVEROPT" ]; then
 	if [ -e ./SMP ]; then
 		KERNVEROPT=SMP
+	elif [ -e ./64 ]; then
+                KERNVEROPT=64
 	else
 		KERNVEROPT=`cat /boot/KERNEL_VERSION`
 	fi
@@ -1856,7 +1886,7 @@ if [ -z "$NOIMAGES" ] ; then
     cp -p $INITDIR/initrd $IMAGEDIR
     cp $INITDIR/image.md5 $IMAGEDIR
     image_fastboot
-    addpkgs $IMAGEDIR
+    addpkgs $IMAGEDIR/$ts_basepath/$PKG_PREFIX/
     ;;
   iso)
     IMAGEDIR=boot-images/iso
@@ -1887,7 +1917,7 @@ if [ -z "$NOIMAGES" ] ; then
     fi
     addpkgs $IMAGEDIR/source
 
-    genisoimage -o $IMAGEDIR/thinstation.iso \
+    mkisofs	-o $IMAGEDIR/thinstation.iso \
         -b isolinux.bin\
 	-f \
 	-quiet \

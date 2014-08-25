@@ -1,4 +1,6 @@
 #!/bin/bash
+. /etc/ashrc
+
 tempdir=`mktemp -d 2>/dev/null`
 disk=$1
 buggybios=$2
@@ -83,16 +85,25 @@ e2label ${disk}2 home
 e2label ${disk}4 tsdev
 sleep 1
 #progress 50
+
+
 echo "Remounting"
 rm /tmp/nomount
 read_pt
 do_mounts
 sleep 1
+
+# Syslinux the boot partition
 cd /boot
 cp /install/* .
 ./syslinux -s ${disk}1
 ./syslinux ${disk}1
+
+# Setup proxy for wget and git
 proxy-setup
+. /tmp/.proxy
+
+# Install a default boot and backup-boot image into the boot partition
 if [ -e /mnt/cdrom0/thindev-default.tar.xz ]; then
 	tar -xvf /mnt/cdrom0/thindev-default.tar.xz
 else
@@ -101,11 +112,15 @@ else
 	tar -xvf thindev-default.tar.xz
 	rm thindev-default.tar.xz
 fi
+
 cp /boot/initrd /boot/initrd-backup
 cp /boot/vmlinuz /boot/vmlinuz-backup
 cp /boot/lib.update /boot/lib.squash-backup
 cd /thinstation
 rm -rf *
+
 echo "Gitting thinstation repo"
-git clone --depth 1 git://github.com/Thinstation/thinstation.git -b 5.2-Stable /thinstation
+
+git clone --depth 1 https://github.com/Thinstation/thinstation.git -b 5.2-Stable /thinstation
+
 ./setup-chroot -i
