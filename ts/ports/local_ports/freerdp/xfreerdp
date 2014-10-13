@@ -5,6 +5,9 @@ do
         /*)
             ALL=$ALL' '$1
             ;;
+        -??*)
+            ALL=$ALL' '$1
+            ;;
         -d)
             shift
             ALL=$ALL' /d:'$1
